@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/Nicholas-Aanto-M/yummy-api#readme",
   "dependencies": {
+    "better-sqlite3": "^7.5.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2"
   },
   "devDependencies": {

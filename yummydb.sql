@@ -47,11 +47,39 @@ DROP TABLE yummy_recipes_info ;
 
 
 -- Adding Values to Tables--
-Insert INTO yummydb_recipes (recipe_name,food_type) VALUES ("Mushroom biryani","V"),("chicken Gravy","NV"),("Chicken Biryani","NV");
+Insert INTO yummydb_recipes (recipe_name,food_type) 
+VALUES 
+("Mushroom biryani","V"),
+("chicken Gravy","NV"),
+("Chicken Biryani","NV");
 
-Insert INTO yummydb_recipes_images (recipe_id,image_url,image_alt) VALUES (1,"/mushroom_biriyani.png","mushroom_biriyani_image"),(2,"/chicken_Gravy.png","chicken_Gravy_image"),(3,"/Chicken_Biryani.png","Chicken_Biryani_image");
+Insert INTO yummydb_recipes_images (recipe_id,image_url,image_alt) 
+VALUES 
+(1,"/mushroom_biriyani.png","mushroom_biriyani_image"),
+(2,"/chicken_Gravy.png","chicken_Gravy_image"),
+(3,"/Chicken_Biryani.png","Chicken_Biryani_image");
 
 Insert INTO yummy_recipes_info (recipe_id,ingridients_req,prep_steps,recipe_desc) 
-VALUES (1,"mushroom and masala","wash and cook it","its a spicy gravy with good aroma");
+VALUES 
+(1,"mushroom and masala","wash and cook it","its a spicy gravy with good aroma"),
+(2,"chicken and Kuruma","wash and cook it","its a spicy gravy with good aroma"),
+(3,"chicken and Biriyani Rice","wash and cook it","its a spicy gravy with good aroma");
 
 DELETE FROM yummydb_recipes_images WHERE recipe_id = 1;
+
+
+
+--Selecting Quries for Home page--
+SELECT 
+rdb.recipe_id RecipeId,
+rdb.recipe_name RecipeName,
+rdb.food_type FoodType,
+ridb.image_url ImgUrl,
+ridb.image_alt ImgAlt,
+rifodb.recipe_desc Descriptions 
+FROM 
+yummydb_recipes rdb
+INNER JOIN yummydb_recipes_images ridb
+ON rdb.recipe_id= ridb.recipe_id 
+INNER JOIN yummy_recipes_info rifodb
+ON rdb.recipe_id= rifodb.recipe_id;

@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  yummyapi:
+    image: yummyapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 317:317
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "app.js"]
